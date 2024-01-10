@@ -4,6 +4,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    scroll-behavior: smooth;
 }
 
 /* Color Options */
@@ -25,6 +26,7 @@
 body{
     color: var(--secondary);
     background-color: var(--primary90);
+    height: auto;
 }
 
 /* Header Style */
@@ -110,19 +112,16 @@ body{
     {
         width: 90vw;
         height: auto;
-        min-height: 20vh;
         margin: 2vh auto;
         border-bottom: 4px solid var(--primary20);
         border-right: 4px solid var(--primary20);
         background: #fff;
-        
-        padding: 10px 0;
         margin-top: 2px;
-        border-radius: 40px 40px 40px 40px;
-        -webkit-border-radius: 40px 40px 40px 40px;
-        -moz-border-radius: 40px 40px 40px 40px;
-        -ms-border-radius: 40px 40px 40px 40px;
-        -o-border-radius: 40px 40px 40px 40px;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
 }
     h3
     {
@@ -279,6 +278,166 @@ body{
             font-weight: 900;
 }
 /* Footer Style End */
+
+/* Pop Up Tambah data */
+.tambah
+{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    background-color: #000000DD;
+    backdrop-filter: blur(1px);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.boxtambah
+{
+    width: 90vw;
+    height: auto;
+    margin: 0 auto;
+    border-bottom: 3px solid var(--primary40);
+    border-right: 3px solid var(--primary40);
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+.headtambah
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 5px 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-weight: 700;
+    color: var(--secondary);
+    font-size: .6rem;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid var(--secondary);
+    border-bottom: 2px solid var(--secondary);
+    border-top: none;
+    border-left: none;
+    background-color: var(--primary);
+}
+.boxlisttambah
+    {
+        width: 85vw;
+        min-height: 50px;
+        height: auto;
+        padding: 15px;
+        margin: 10px auto;
+        display: flex;
+        border-radius: 15px;
+        background-color: var(--primary20);
+        color: var(--primary80);
+    }
+
+    .articleboxtambah
+    {
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .checkbox{
+        width: auto;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .uppersztambah
+    {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 5px;
+    }
+    .tangglan
+    {
+        display: flex;
+        flex: 1;
+        justify-content: end;
+        padding-right: 10px;
+    }
+    .header-list
+    {
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+    }
+    .buttun, .bittin
+    {
+        flex: 1;
+        display: flex;
+    }
+    .bittin 
+    {
+        justify-content: end;
+    }
+    .apaantuch
+    {
+        padding-right: 5px;
+    }
+    .urgent, .basic
+    {
+        font-weight: 700;
+        color: var(--primary);
+        flex: 1;
+    }
+    .basic
+    {
+        color: var(--primary60);
+    }
+    .ceklis
+    {
+        height: 20px;
+        width: 20px;
+        background-color: var(--primary90);
+        border: 2px solid black;
+        color: var(--secondary);
+        border-radius: 5px;
+        font-size: .5em;
+    }
+    .warning
+    {
+        border: none;
+        color: var(--secondary);
+        background-color: #000000;
+        height: 20px;
+        width: 20px;
+        border-radius: 5px;
+        font-size: .5em;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+}
+    .eak
+    {
+        display: flex; gap: 5px; justify-content: end; align-items: center; flex: 1; margin-right: 5px; margin-top: 2px;
+    }
+    h4
+    {
+        font-size: .75rem;
+        margin-top: 5.7px;
+        color: var(--primary);
+        font-weight: 900;
+    }
+    
+/* Pop Up Tambah dataEnd */
 
 .anjas
 {
