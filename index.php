@@ -3,6 +3,8 @@ require "funct.php";
 
 if(isset($_POST["create"])){
     tambah($_POST);
+    $z = $_POST['finish'];
+    echo "<script>console.log('$z')</script>";
 }
 if(isset($_POST["ceklis"])){
     ubahFinish($_POST);
@@ -26,14 +28,19 @@ if(isset($_POST["apus"])){
     <link rel="stylesheet" href="animation.css">
 </head>
 <body>
-    <div class="mangeak">
+<div class="mangeak">
     <!-- Navbar Start!!! -->
     <header>
-        <p><a href="index.php?unfinished">Unfinished</a></p>
+        <nav class="nav1">
+            <ul class="nav1">
+                <li><a href="index.php?unfinished">Unfinished</a></li>
+                <li><a href="index.php?urgent">Urgent</a></li>
+            </ul>
+        </nav>
         <article>TODO APP</article>
         <nav>
             <ul>
-                <li><a href="index.php?urgent">Urgent</a></li>
+                <li><a href="index.php?finished">Finished</a></li>
                 <li><a href="">Menu</a></li>
             </ul>
         </nav>
@@ -64,8 +71,8 @@ if(isset($_POST["apus"])){
                 <?php foreach($dataList as $row) : ?>
                     <div class="boxlist" id="list<?= $row['id'] ?>">
                         <div class="articlebox">
-                            <div class="uppersz">
-                                <h6 class="urgent">
+                            <div class="uppersz" >
+                                <h6 class="<?php if($row['finish'] == "finished" ) {echo "basic";} else{ echo "urgent"; } ?>">
                                     <?php
                                         if($row['urgenity'] == "urgent" ){
                                             echo "⚠︎";
@@ -139,22 +146,29 @@ if(isset($_POST["apus"])){
                                         }
                                     ?> 
                                     | <?= substr($row['time'],0,5) ?>
-                                </h6><h6 class="urgent bittin apaantuch"></h6>
                             </div>
-                            <h4 class="header-list"><?= $row['nameList'] ?></h4>
+                            <h4 class="header-list  <?php if($row['finish'] == "finished" ) {echo "header-list-finished";} ?>"><?= $row['nameList'] ?></h4>
                         </div>
                         <div class="checkbox">
                             <h6 class="tangglan" style="justify-content: end; align-items: self-start; padding: 0;"><?= substr($row['dateCreate'],0,10)?></h6>
                             <form action="" method="post">
                                 <ul type="none" class="eak" >
-                                    <li>
-                                        <input type="hidden" name="ide" value="<?= $row['id'] ?>">
-                                        <button type="submit" class="warn" name="apus" id="buttonHapus<?= $row['id']  ?>" onclick="hapusList(<?= $row['id']  ?>)">✖️</button> 
-                                    </li>
-                                    <li>
-                                        <input type="hidden" name="fished" value="finished">
-                                        <button type="submit" name="ceklis" class="ceklis">✔️</button>
-                                    </li>
+                                    <?php if($row['finish'] == "finished" )  : ?>
+                                        <li>
+                                            <input type="hidden" name="ide" value="<?= $row['id'] ?>">
+                                            <button type="submit" class="warn <?php if($row['finish'] == "finished" ) {echo "finished";} ?> " name="apus" id="buttonHapus<?= $row['id']  ?>" onclick="hapusList(<?= $row['id']  ?>)">✖️</button> 
+                                        </li>
+                                        <li>
+                                    <?php else  : ?>
+                                        <li>
+                                            <input type="hidden" name="ide" value="<?= $row['id'] ?>">
+                                            <button type="submit" class="warn <?php if($row['finish'] == "finished" ) {echo "finished"; } ?> " name="apus" id="buttonHapus<?= $row['id']  ?>" onclick="hapusList(<?= $row['id']  ?>)">✖️</button> 
+                                        </li>
+                                        <li>
+                                            <input type="hidden" name="fished" value="finished">
+                                            <button type="submit" name="ceklis" class="ceklis">✔️</button>
+                                        </li>
+                                    <?php endif ; ?>
                                 </ul>
                             </form>
                         </div>
@@ -173,13 +187,13 @@ if(isset($_POST["apus"])){
                             <div class="uppersz">
                                 <h6 class="basic">✔️ Today | 8:00</h6><h6 class="urgent bittin apaantuch"></h6>
                             </div>
-                            <h4 class="header-list" style="color: #000000DD;">Sarapan</h4>
+                            <h4 class="header-list" >Sarapan</h4>
                         </div>
                         <div class="checkbox">
                             <h6 class="tangglan basic" style="justify-content: end; align-items: self-start; padding: 0;">24/10/2023</h6>
                             <ul type="none" class="eak" >
                                     <li>
-                                        <button type="submit" class="warn" style="background-color: #00000099; border: 1px solid #00000099; color: #000000;">✖️</button>
+                                        <button type="submit" class="warn" >✖️</button>
                                     </li>
                                     
                                 </ul>
@@ -191,18 +205,23 @@ if(isset($_POST["apus"])){
     </div>
     <!-- Main Page End !!! -->
     
-    <!-- Footer Page Start!!! -->
-    <div class="rum" >
-        <div class="raszkung">
-            <p style="font-size: .6rem; font-weight: 900;">©️ Raszzking 2024. Lets Colaborate!</p>
-        </div>
-    </div>
-    <!-- Footer Page End !!! -->
 </div>
+    <!-- Footer Page Start!!! -->
+
+<!-- Footer Page End !!! -->
 
     <!-- Plus Button Start!!!  -->
         <footer>
-            <button type="submit" id="tambahkanList" onclick="tambahinaja()" style="border: 0;">➕︎</button>
+            <div class="wd-100">
+                <div class="futur">
+                    <button type="submit" id="tambahkanList" onclick="tambahinaja()" style="border: 0;">➕︎</button>
+                </div>
+            </div>
+            <div class="rum" >
+    <div class="raszkung">
+        <p style="font-size: .6rem; font-weight: 900;">©️ Raszzking 2024. Lets Colaborate!</p>
+    </div>
+</div>
         </footer>
     <!-- Plus Button End !!! -->
 
@@ -242,10 +261,8 @@ if(isset($_POST["apus"])){
         </div>
     </div>
     
-    <?php $yes ="ily300"; ?>
     <script src="script.js"></script>
     <script>
-        console.log("<?= $yes ?>");
     </script>
 </body>
 </html>

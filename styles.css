@@ -33,16 +33,18 @@ body{
     header
     {
         font-weight: 750;
-        height: 10vh;
+        height: 70px;
         width: 95vw;
-        padding: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
         margin: 0 auto;
         display: flex;
         align-items: center;
         background-color: var(--secondary);
         border-bottom: 4px solid var(--primary20);
         border-right: 4px solid var(--primary20);
-        font-size: 1.3em;
         margin-top: 20px;
 
         border-radius: 40px 40px 40px 40px;
@@ -96,6 +98,9 @@ body{
         justify-content: end;
         width: 30vw;
         padding: 10px;
+    }
+    .nav1{
+        justify-content: start;
     }
     nav ul
     {
@@ -251,18 +256,33 @@ body{
         color: var(--primary);
         font-weight: 900;
     }
+    .finished {
+        background-color: #00000099; border: 1px solid #00000099; color: #000000;
+    }
+    .header-list-finished {
+        color: #000000DD;
+    }
 /* Section Style End */
 
 /* Footer Style Start */
-    footer
+footer{
+    position: fixed;
+    bottom: 0;
+    
+}
+.wd-100{
+    width: 100vw;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+    .futur
     {
-            position: fixed;
             width: 55px;
             height: 55px;
             padding: 15px;
             background-color: #EAEAEA;
             color: var(--primary);
-            bottom: 0;
             right: 0;
             margin-right: 10px;
             margin-bottom: 20px;
@@ -454,22 +474,30 @@ body{
 }
 .rum
 {
-    height: 75px; display: flex; flex-direction: column-reverse;
+    height: 15px; display: flex; flex-direction: column-reverse; 
 }
 .raszkung
 {
-    height: 15px; width: 100%; display: flex; justify-content: center; text-align: center; background-color: #fff; color: #000000DD;
+    height: 15px; width: 100vw; display: flex; justify-content: center; text-align: center; background-color: #fff; color: #000000DD; 
 }
+.mangeak{
+    min-height: 90vh;
+    height: auto;
 
+}
 /* Main Screen End*/
 
 
 /* Media Screen */
     @media screen and (max-width: 516px) 
     {
-        header p, header article, header nav ul li
+        header nav ul li
         {
-            font-size: .75em;
+            font-size: .8em;
+        }
+        article{
+
+            font-size: .9em;
         }
         a {
             font-size: .85em;
@@ -479,6 +507,15 @@ body{
         }
         .eak{
             justify-content: end;
+        }
+        header {
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        nav ul {
+            gap: 4px;
         }
     }
 
@@ -520,7 +557,7 @@ body{
         }
         a:hover
         {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
         .boxlist
         {
