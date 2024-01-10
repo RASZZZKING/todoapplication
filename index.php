@@ -41,7 +41,7 @@ if(isset($_POST["apus"])){
         <nav>
             <ul>
                 <li><a href="index.php?finished">Finished</a></li>
-                <li><a href="">Menu</a></li>
+                <li><a href="index.php">All</a></li>
             </ul>
         </nav>
     </header>
@@ -75,8 +75,14 @@ if(isset($_POST["apus"])){
                                 <h6 class="<?php if($row['finish'] == "finished" ) {echo "basic";} else{ echo "urgent"; } ?>">
                                     <?php
                                         if($row['urgenity'] == "urgent" ){
-                                            echo "⚠︎";
-                                        }
+                                            $j = "⚠︎";
+                                            if ($row['finish'] == "finished"){
+                                                $j = "✔️";
+                                            }
+                                        } 
+                                        else if ($row['finish'] == "finished"){
+                                            $j= "✔️";
+                                        } echo $j;
                                     ?>
                                     <?php
                                         $ygbenr = $row['date'];
@@ -176,32 +182,6 @@ if(isset($_POST["apus"])){
                 <?php endforeach; ?>
             </section>
         </div>
-        
-
-        <!-- FINISHED SECTION -->
-            <div class="anjas">
-                <h3><span>Finished</span></h3>
-                <section>
-                    <div class="boxlist">
-                        <div class="articlebox">
-                            <div class="uppersz">
-                                <h6 class="basic">✔️ Today | 8:00</h6><h6 class="urgent bittin apaantuch"></h6>
-                            </div>
-                            <h4 class="header-list" >Sarapan</h4>
-                        </div>
-                        <div class="checkbox">
-                            <h6 class="tangglan basic" style="justify-content: end; align-items: self-start; padding: 0;">24/10/2023</h6>
-                            <ul type="none" class="eak" >
-                                    <li>
-                                        <button type="submit" class="warn" >✖️</button>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                </section>
-            </div>
-        <!-- FINISHED SECTION end -->
     </div>
     <!-- Main Page End !!! -->
     
